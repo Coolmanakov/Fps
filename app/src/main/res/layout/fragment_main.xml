@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="presenter"
+            type="com.example.fps.features.main.MainPresenter" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_main">
+
+        <ImageView
+            android:id="@+id/icon_communication"
+            android:layout_width="350dp"
+            android:layout_height="250dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/icon_communication"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/button_chapter"
+            style="@style/FpsButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->presenter.showChapters()}"
+            android:text="@string/chapters_text"
+            app:layout_constraintBottom_toTopOf="@+id/button_test"
+            app:layout_constraintEnd_toEndOf="@+id/button_settings"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/button_settings"
+            app:layout_constraintTop_toBottomOf="@+id/icon_communication" />
+
+        <Button
+            android:id="@+id/button_test"
+            style="@style/FpsButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/test_text"
+            android:onClick="@{()->presenter.showTests()}"
+            app:layout_constraintBottom_toTopOf="@+id/button_settings"
+            app:layout_constraintEnd_toEndOf="@+id/button_settings"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/button_settings"
+            app:layout_constraintTop_toBottomOf="@+id/button_chapter" />
+
+        <Button
+            android:id="@+id/button_settings"
+            style="@style/FpsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_text"
+            android:onClick="@{()->presenter.showSettings()}"
+            app:layout_constraintBottom_toTopOf="@+id/button_exit"
+            app:layout_constraintEnd_toEndOf="@+id/icon_communication"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/icon_communication"
+            app:layout_constraintTop_toBottomOf="@+id/button_test" />
+
+        <Button
+            android:id="@+id/button_exit"
+            style="@style/FpsButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->presenter.exit()}"
+            android:text="@string/exit_string"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/button_settings"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/button_settings"
+            app:layout_constraintTop_toBottomOf="@+id/button_settings" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
