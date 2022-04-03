@@ -1,4 +1,4 @@
-package com.example.fps.settings
+package com.example.fps.features.settings
 
 import android.os.Bundle
 import com.example.fps.App

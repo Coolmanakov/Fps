@@ -4,4 +4,8 @@
     <string name="test_text">Тесты</string>
     <string name="settings_text">Настройки</string>
     <string name="exit_string">Выход</string>
+    <string name="on_deny_write_external_permission_text">
+        К сожалению, вы не сможете продолжить работу с разделами,
+        так как для этого нужно предоставить доступ к внешнему хранилищу
+    </string>
 </resources>

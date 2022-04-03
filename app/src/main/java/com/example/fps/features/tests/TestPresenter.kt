@@ -1,4 +1,4 @@
-package com.example.fps.tests
+package com.example.fps.features.tests
 
 import com.example.fps.features.base.BasePresenter
 import com.github.terrakok.cicerone.Router

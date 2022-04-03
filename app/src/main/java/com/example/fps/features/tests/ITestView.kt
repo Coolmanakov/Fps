@@ -1,4 +1,4 @@
-package com.example.fps.tests
+package com.example.fps.features.tests
 
 import moxy.MvpView
 

@@ -1,4 +1,4 @@
-package com.example.fps.settings
+package com.example.fps.features.settings
 
 import com.example.fps.features.base.BasePresenter
 import com.github.terrakok.cicerone.Router

@@ -1,10 +1,10 @@
 package com.example.fps.navigation
 
-import android.provider.Settings
-import com.example.fps.chapters.ChapterFragment
+import com.example.fps.features.chapter_description.ChapterDescriptionFragment
+import com.example.fps.features.chapters.ChapterFragment
 import com.example.fps.features.main.MainFragment
-import com.example.fps.settings.SettingsFragment
-import com.example.fps.tests.TestFragment
+import com.example.fps.features.settings.SettingsFragment
+import com.example.fps.features.tests.TestFragment
 import com.github.terrakok.cicerone.androidx.FragmentScreen
 
 object Screens {
@@ -27,5 +27,9 @@ object Screens {
     val Test
         get() = FragmentScreen {
             TestFragment()
+        }
+
+    fun chapterDescription(path: String) = FragmentScreen {
+            ChapterDescriptionFragment.newInstance(path)
         }
 }

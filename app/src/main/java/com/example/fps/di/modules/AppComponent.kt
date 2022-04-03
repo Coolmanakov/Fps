@@ -1,18 +1,21 @@
 package com.example.fps.di.modules
 
-import com.example.fps.chapters.ChapterFragment
+import com.example.fps.features.chapter_description.ChapterDescriptionFragment
+import com.example.fps.features.chapters.ChapterFragment
 import com.example.fps.features.main.MainActivity
 import com.example.fps.features.main.MainFragment
-import com.example.fps.settings.SettingsFragment
-import com.example.fps.tests.TestFragment
+import com.example.fps.features.settings.SettingsFragment
+import com.example.fps.features.tests.TestFragment
 import dagger.Component
 import javax.inject.Singleton
 
 
 @Singleton
 @Component(
-    modules =[
-        NavigationModule::class
+    modules = [
+        NavigationModule::class,
+        AppModule::class,
+        ChapterModule::class
     ]
 )
 interface AppComponent {
@@ -21,4 +24,5 @@ interface AppComponent {
     fun inject(chapterFragment: ChapterFragment)
     fun inject(settingsFragment: SettingsFragment)
     fun inject(testFragment: TestFragment)
+    fun inject(chapterDescriptionFragment: ChapterDescriptionFragment)
 }

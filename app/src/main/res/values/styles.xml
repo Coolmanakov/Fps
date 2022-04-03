@@ -9,4 +9,10 @@
         <item name="android:textStyle">bold</item>
         <item name="android:padding">24dp</item>
     </style>
+
+    <style name="BaseText">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
 </resources>
