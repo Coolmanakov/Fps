@@ -5,13 +5,16 @@ import com.example.fps.models.Chapter
 import java.io.File
 import javax.inject.Inject
 
-class ChapterLocalDataSource @Inject constructor() : IChapterLocalDataSource {
+class ChapterLocalDataSource @Inject constructor() :
+    IChapterLocalDataSource {
+
+    private val EXTERNAL_STORAGE_PATH by lazy {
+        Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).absolutePath +
+                File.separator + CHAPTER_FOLDER_NAME
+    }
 
     override fun getChapterList(): List<Chapter> {
-        val chapterFolder = File(
-            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
-            CHAPTER_FOLDER_NAME
-        )
+        val chapterFolder = File(EXTERNAL_STORAGE_PATH)
         return if (!chapterFolder.exists()) {
             chapterFolder.mkdir()
             emptyList()
@@ -24,10 +27,7 @@ class ChapterLocalDataSource @Inject constructor() : IChapterLocalDataSource {
     }
 
     override fun getChapterDescription(path: String): List<Chapter> {
-        val chapterFolder = File(
-            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
-            CHAPTER_FOLDER_NAME + File.separator + path
-        )
+        val chapterFolder = File(EXTERNAL_STORAGE_PATH + File.separator + path)
         return if (chapterFolder.exists()) {
             chapterFolder.listFiles()?.let { fileList ->
                 fileList.map { chapterDescription -> Chapter(chapterDescription.name) }
@@ -35,12 +35,15 @@ class ChapterLocalDataSource @Inject constructor() : IChapterLocalDataSource {
         } else emptyList()
     }
 
+    override fun getExternalStoragePath(): String = EXTERNAL_STORAGE_PATH
+
     companion object {
         private const val CHAPTER_FOLDER_NAME = "ФПС"
     }
 }
 
-interface IChapterLocalDataSource{
+interface IChapterLocalDataSource {
     fun getChapterList(): List<Chapter>
     fun getChapterDescription(path: String): List<Chapter>
+    fun getExternalStoragePath(): String
 }

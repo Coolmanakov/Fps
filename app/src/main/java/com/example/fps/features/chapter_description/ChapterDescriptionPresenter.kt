@@ -12,4 +12,6 @@ class ChapterDescriptionPresenter @Inject constructor(
         val chapterDescription = chapterInteractor.getChapterDescription(path)
         viewState.updateUiModel(chapterDescription)
     }
+
+    fun getExternalStoragePath(): String = chapterInteractor.getExternalStoragePath()
 }

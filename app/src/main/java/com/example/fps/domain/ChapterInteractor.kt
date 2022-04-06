@@ -13,6 +13,8 @@ class ChapterInteractor @Inject constructor(
     override fun getChapterDescription(path: String): List<Chapter> =
         chapterLocalDataSource.getChapterDescription(path)
 
+    override fun getExternalStoragePath(): String = chapterLocalDataSource.getExternalStoragePath()
+
 }
 
 interface IChapterInteractor {
@@ -22,4 +24,6 @@ interface IChapterInteractor {
     fun getChapters(): List<Chapter>
 
     fun getChapterDescription(path: String): List<Chapter>
+
+    fun getExternalStoragePath(): String
 }
