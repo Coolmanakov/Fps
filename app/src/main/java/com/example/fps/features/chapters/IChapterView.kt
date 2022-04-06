@@ -7,8 +7,6 @@ import moxy.viewstate.strategy.alias.AddToEndSingle
 
 @AddToEnd
 interface IChapterView : MvpView {
-    @AddToEndSingle
-    fun checkPermission()
 
     @AddToEndSingle
     fun updateUiModel(chapterList: List<Chapter>)
